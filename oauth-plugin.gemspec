@@ -24,8 +24,7 @@ Gem::Specification.new do |s|
   s.rubyforge_project = %q{oauth}
   s.rubygems_version = %q{1.3.7}
   s.summary = %q{Ruby on Rails Plugin for OAuth Provider and Consumer}
-  s.add_development_dependency "opentransact"
-  s.add_development_dependency "rspec", "~> 2.4.0"
+  s.add_development_dependency "rspec", "~> 3.12.0"
   s.add_development_dependency "fakeweb"
   s.add_development_dependency "fuubar"
   s.add_development_dependency "guard-rspec"
@@ -33,7 +32,7 @@ Gem::Specification.new do |s|
   s.add_development_dependency "rack-test"
 
   s.add_dependency "multi_json"
-  s.add_dependency("oauth", ["~> 0.4.4"])
+  s.add_dependency("oauth", ["~> 1.1.0"])
   s.add_dependency("rack")
   s.add_dependency("oauth2", '>= 0.5.0')
 end
