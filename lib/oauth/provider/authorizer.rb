@@ -69,7 +69,8 @@ module OAuth
 
       def encode_response
         response.map do |k, v|
-          [URI.escape(k.to_s),URI.escape(v)] * "="
+          parser = URI::Parser.new
+          [parser.escape(k.to_s),parser.escape(v)] * "="
         end * "&"
       end
 
