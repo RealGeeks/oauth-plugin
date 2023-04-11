@@ -42,14 +42,14 @@ module Oauth
           # Finds, creates or updates a ConsumerToken by finding the token
           # or taking it when it's given. It then updates the attributes and saves the changes/new record to a datastore.
           # @param user [User] The user to which the access token should belong to
-          # @param access_token [AccessToken || Oauth2Token] Either a request token taken from the service or a ConsumerToken
+          # @param access_token [AccessToken || OAuth2Token] Either a request token taken from the service or a ConsumerToken
           # @param new_token [AccessToken] A new access token, used for refreshing the access token with OAuth 2.
           #
           # Usage example:
           # find_or_create_from_access_token(current_user, access_token) <-- Find or create a new access token
-          # find_or_create_from_access-token(current_user, Oauth2Token.last, client.refresh!) <-- Edits existing record with new refreshed information
+          # find_or_create_from_access-token(current_user, OAuth2Token.last, client.refresh!) <-- Edits existing record with new refreshed information
           def find_or_create_from_access_token(user, access_token, new_token = nil)
-            if access_token.class.ancestors.include?(Oauth2Token)
+            if access_token.class.ancestors.include?(OAuth2Token)
               token = access_token
             else
               if user
@@ -71,7 +71,7 @@ module Oauth
           def set_details(access_token, token)
             secret = access_token.respond_to?(:secret) ? access_token.secret : nil
             refresh_token = access_token.respond_to?(:refresh_token) ? access_token.refresh_token : nil
-            expires_in, expires_at = token.expiration_date(access_token) if token.class.ancestors.include?(Oauth2Token)
+            expires_in, expires_at = token.expiration_date(access_token) if token.class.ancestors.include?(OAuth2Token)
 
             token.token = access_token.token
             token.refresh_token = refresh_token

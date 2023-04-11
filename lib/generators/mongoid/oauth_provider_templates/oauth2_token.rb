@@ -1,4 +1,4 @@
-class Oauth2Token < AccessToken
+class OAuth2Token < AccessToken
   attr_accessor :state
   def as_json(options={})
     d = {:access_token=>token, :token_type => 'bearer'}

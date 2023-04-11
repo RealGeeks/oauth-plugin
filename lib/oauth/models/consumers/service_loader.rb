@@ -19,7 +19,7 @@ if defined? ConsumerToken && defined? OAUTH_CREDENTIALS
           # Let Rails auto-load from the models folder
           eval class_name
         rescue NameError
-          super_class = value[:super_class]||value[:oauth_version].to_i>=2 ? "Oauth2Token" : "ConsumerToken"
+          super_class = value[:super_class]||value[:oauth_version].to_i>=2 ? "OAuth2Token" : "ConsumerToken"
           eval "class #{class_name} < #{super_class} ;end"
         end
       end

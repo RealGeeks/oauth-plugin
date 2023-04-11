@@ -23,7 +23,7 @@ module OAuth
       end
 
       def token
-        @token ||= ::Oauth2Token.create! :client_application => app,
+        @token ||= ::OAuth2Token.create! :client_application => app,
                                       :user => @user,
                                       :scope => @params[:scope],
                                       :callback_url => @params[:redirect_uri]
