@@ -1,5 +1,5 @@
 module Oauth
   module Plugin
-    VERSION = "0.6.0.pre"
+    VERSION = "0.6.1.pre"
   end
 end
