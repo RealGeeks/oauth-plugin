@@ -24,7 +24,7 @@ module Oauth
         end
 
         unless @token
-          if @consumer.ancestors.include?(Oauth2Token)
+          if @consumer.ancestors.include?(OAuth2Token)
             request_url = callback2_oauth_consumer_url + callback2_querystring
             redirect_to @consumer.authorize_url(request_url) + '&approval_prompt=force&access_type=offline'
           else

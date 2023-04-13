@@ -1,5 +1,5 @@
 require 'oauth2'
-class Oauth2Token < ConsumerToken
+class OAuth2Token < ConsumerToken
   after_initialize :ensure_access, if: :expired_and_existing_and_using_refresh_tokens?
 
   def self.consumer

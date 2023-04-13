@@ -23,7 +23,7 @@ module OAuth
       end
 
       def token
-        @token ||= ::Oauth2Token.create! :client_application => app,
+        @token ||= ::OAuth2Token.create! :client_application => app,
                                       :user => @user,
                                       :scope => @params[:scope],
                                       :callback_url => @params[:redirect_uri]
@@ -69,7 +69,8 @@ module OAuth
 
       def encode_response
         response.map do |k, v|
-          [URI.escape(k.to_s),URI.escape(v)] * "="
+          parser = URI::Parser.new
+          [parser.escape(k.to_s),parser.escape(v)] * "="
         end * "&"
       end
 
